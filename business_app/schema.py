@@ -81,7 +81,7 @@ class UpdateCompany(graphene.Mutation):
 
     company = graphene.Field(CompanyType)
 
-    def mutate(self, info, id, name=None, address=None, owners=None, employee_size=True, created_at=None, updated_at=None):
+    def mutate(self, info, id, name=None, address=None, owners=None, employee_size=None, created_at=None, updated_at=None):
         company = Company.objects.get(pk=id)
         company.name = name if name is not None else company.name
         company.address = address if address is not None else company.address
